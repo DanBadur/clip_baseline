@@ -1,0 +1,21 @@
+name: text_vpr
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - pytorch-cuda=11.8
+  - transformers
+  - pillow
+  - numpy
+  - scikit-learn
+  - tqdm
+  - pip
+  - pip:
+    - clip-by-openai
+    - ftfy
+    - regex

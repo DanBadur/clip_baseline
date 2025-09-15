@@ -1,0 +1,119 @@
+{
+  "model_config": {
+    "model_name": "ViT-B/32",
+    "freeze_image_encoder": false,
+    "freeze_text_encoder": false,
+    "freeze_projections": false
+  },
+  
+  "training_config": {
+    "epochs": 20,
+    "batch_size": 32,
+    "learning_rate": 1e-5,
+    "min_lr": 1e-7,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 1.0,
+    "warmup_epochs": 2,
+    "patience": 5,
+    "eval_every": 1,
+    "save_checkpoints": true,
+    "checkpoint_dir": "checkpoints",
+    "resume_from_checkpoint": null
+  },
+  
+  "optimizer_config": {
+    "optimizer": "adamw",
+    "separate_parameter_groups": true,
+    "image_encoder_lr": 5e-6,
+    "text_encoder_lr": 5e-6,
+    "projection_lr": 2e-5,
+    "momentum": 0.9,
+    "beta1": 0.9,
+    "beta2": 0.999
+  },
+  
+  "scheduler_config": {
+    "scheduler": "cosine",
+    "warm_restarts": true,
+    "restart_epoch": 10,
+    "step_size": 30,
+    "gamma": 0.1,
+    "decay_rate": 0.95
+  },
+  
+  "loss_config": {
+    "loss_type": "contrastive",
+    "temperature": 0.07,
+    "margin": 0.5,
+    "hard_negative_mining": true,
+    "num_hard_negatives": 3,
+    "label_smoothing": 0.0,
+    "focal_alpha": 1.0,
+    "focal_gamma": 2.0
+  },
+  
+  "dataset_config": {
+    "train_data_path": "data/train",
+    "val_data_path": "data/val",
+    "test_data_path": "data/test",
+    "dataset_type": "standard",
+    "max_length": 77,
+    "use_augmentation": true,
+    "negative_mining_strategy": "semantic",
+    "triplet_strategy": "hardest"
+  },
+  
+  "augmentation_config": {
+    "color_jitter": 0.4,
+    "random_horizontal_flip": 0.5,
+    "random_rotation": 10,
+    "random_crop": 0.9,
+    "random_erasing": 0.1,
+    "augment_captions": true,
+    "max_caption_variations": 3,
+    "synonym_replacement": true,
+    "paraphrasing": true
+  },
+  
+  "evaluation_config": {
+    "metrics": ["recall@1", "recall@5", "recall@10", "mAP", "ndcg"],
+    "k_values": [1, 5, 10, 20],
+    "save_predictions": true,
+    "prediction_dir": "predictions"
+  },
+  
+  "logging_config": {
+    "log_dir": "logs",
+    "log_level": "INFO",
+    "save_tensorboard": true,
+    "save_wandb": false,
+    "wandb_project": "clip-fine-tuning",
+    "wandb_entity": null
+  },
+  
+  "hardware_config": {
+    "device": "auto",
+    "num_workers": 4,
+    "pin_memory": true,
+    "mixed_precision": true,
+    "gradient_accumulation_steps": 1
+  },
+  
+  "data_balancing_config": {
+    "balance_strategy": "category",
+    "max_samples_per_category": 1000,
+    "min_samples_per_category": 100,
+    "oversample_minority": true,
+    "undersample_majority": false
+  },
+  
+  "advanced_config": {
+    "use_ema": false,
+    "ema_decay": 0.9999,
+    "use_amp": true,
+    "use_ddp": false,
+    "find_unused_parameters": false,
+    "gradient_checkpointing": false
+  }
+}
+

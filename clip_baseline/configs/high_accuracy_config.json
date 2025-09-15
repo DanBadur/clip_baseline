@@ -1,0 +1,18 @@
+{
+  "model_name": "ViT-L/14",
+  "device": null,
+  "supported_formats": [".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".webp"],
+  "auto_remove_duplicates": true,
+  "save_metadata": true,
+  "similarity_metric": "cosine",
+  "normalize_features": true,
+  "similarity_params": {},
+  "default_top_k": 20,
+  "min_similarity_threshold": 0.05,
+  "batch_size": 1,
+  "use_tqdm": true,
+  "verbose": true,
+  "save_search_history": true,
+  "output_format": "detailed"
+}
+

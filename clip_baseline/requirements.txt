@@ -1,0 +1,10 @@
+torch
+torchvision
+transformers
+Pillow
+numpy
+scikit-learn
+tqdm
+openai-clip
+ftfy
+regex

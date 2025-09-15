@@ -1,0 +1,18 @@
+{
+  "model_name": "ViT-B/32",
+  "device": null,
+  "supported_formats": [".jpg", ".jpeg", ".png"],
+  "auto_remove_duplicates": false,
+  "save_metadata": false,
+  "similarity_metric": "dot_product",
+  "normalize_features": false,
+  "similarity_params": {},
+  "default_top_k": 5,
+  "min_similarity_threshold": 0.0,
+  "batch_size": 4,
+  "use_tqdm": false,
+  "verbose": false,
+  "save_search_history": false,
+  "output_format": "simple"
+}
+

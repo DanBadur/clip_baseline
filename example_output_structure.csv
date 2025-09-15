@@ -1,0 +1,7 @@
+query_image_path,utm_east,utm_north,reference_1_path,reference_1_distance,reference_1_utm_east,reference_1_utm_north,reference_2_path,reference_2_distance,reference_2_utm_east,reference_2_utm_north,reference_3_path,reference_3_distance,reference_3_utm_east,reference_3_utm_north
+@0543256.96@4178906.70@image001.jpg,543256.96,4178906.7,database/car_001.jpg,0.1766,543260.15,4178911.85,database/vehicle_002.jpg,0.2109,543262.38,4178912.96,database/red_car_003.jpg,0.2346,543264.84,4178914.18
+@0543257.12@4178907.85@image002.jpg,543257.12,4178907.85,database/ocean_001.jpg,0.0844,543261.15,4178911.85,database/sunset_002.jpg,0.1068,543262.38,4178912.96,database/water_003.jpg,0.1544,543264.84,4178914.18
+@0543258.45@4178908.92@image003.jpg,543258.45,4178908.92,database/dog_001.jpg,0.1211,543261.15,4178911.85,database/park_002.jpg,0.1457,543262.38,4178912.96,database/puppy_003.jpg,0.1766,543264.84,4178914.18
+failed_query.jpg,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan
+
+
