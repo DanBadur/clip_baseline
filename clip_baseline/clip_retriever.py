@@ -111,7 +111,7 @@ class CLIPRetriever:
             try:
                 image = Image.open(img_path).convert('RGB')
                 features = self.encode_image(image)
-                features_list.append(features.cpu())
+                features_list.append(features)  # Keep features on the same device as model
                 
                 # Store metadata
                 self.image_paths.append(str(img_path))
@@ -129,7 +129,7 @@ class CLIPRetriever:
         if not features_list:
             raise ValueError("No images could be processed successfully")
             
-        # Stack all features
+        # Stack all features (they should all be on the same device)
         self.image_features = torch.cat(features_list, dim=0)
         print(f"Feature database built with {len(self.image_features)} images")
         

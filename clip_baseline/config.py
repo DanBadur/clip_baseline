@@ -98,6 +98,10 @@ class CLIPConfig:
         """Calculate cosine similarity between query and database features"""
         import torch
         
+        # Ensure both tensors are on the same device
+        device = query_features.device
+        database_features = database_features.to(device)
+        
         if self.normalize_features:
             # Features should already be normalized, but ensure it
             query_norm = query_features / (query_features.norm(dim=-1, keepdim=True) + 1e-8)
@@ -114,6 +118,10 @@ class CLIPConfig:
         """Calculate dot product similarity"""
         import torch
         
+        # Ensure both tensors are on the same device
+        device = query_features.device
+        database_features = database_features.to(device)
+        
         if self.normalize_features:
             # Normalize features for dot product
             query_norm = query_features / (query_features.norm(dim=-1, keepdim=True) + 1e-8)
@@ -129,6 +137,10 @@ class CLIPConfig:
         """Calculate negative Euclidean distance (higher = more similar)"""
         import torch
         
+        # Ensure both tensors are on the same device
+        device = query_features.device
+        database_features = database_features.to(device)
+        
         # Calculate squared Euclidean distance
         diff = query_features.unsqueeze(1) - database_features.unsqueeze(0)
         distances = torch.sum(diff ** 2, dim=-1).squeeze()
@@ -140,6 +152,10 @@ class CLIPConfig:
     def _manhattan_similarity(self, query_features, database_features):
         """Calculate negative Manhattan distance (higher = more similar)"""
         import torch
+        
+        # Ensure both tensors are on the same device
+        device = query_features.device
+        database_features = database_features.to(device)
         
         # Calculate Manhattan distance
         diff = query_features.unsqueeze(1) - database_features.unsqueeze(0)
